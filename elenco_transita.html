@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id transita</th>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Città</th>
+            <th>Cognome Trasportatore</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row.idtransita }}</td>
+            <td>
+                {% if row.tipo == 0 %}
+                IN
+                {% else %}
+                OUT
+                {% endif %}
+            </td>
+            <td>{{ timeConverter(row.data) }}</td>
+            <td>{{ row.citta}}</td>
+            <td>{{ row.cognome }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
